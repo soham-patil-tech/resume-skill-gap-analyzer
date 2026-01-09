@@ -1,0 +1,3 @@
+I am a Python developer with basic knowledge of OOP and SQL.
+I have worked on file handling projects and I am familiar with Git.
+Currently learning data structures.
