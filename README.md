@@ -7,15 +7,20 @@ This project uses pure Python logic (rule-based approach) — no AI/ML — makin
 ⸻
 
 🚀 Key Features
-	•	🎯 Role-Based Skill Analysis
+	
+•	🎯 Role-Based Skill Analysis
 Matches resume content against predefined skills for a chosen job role.
-	•	❌ Missing Skill Detection
+	
+•	❌ Missing Skill Detection
 Identifies important skills that are absent from the resume.
-	•	⚠️ Weak Corporate Word Detection
+	
+•	⚠️ Weak Corporate Word Detection
 Flags commonly used weak words (e.g., worked on, helped, responsible for).
-	•	📊 Resume Readiness Score
+	
+•	📊 Resume Readiness Score
 Generates a score indicating how well the resume matches the selected role.
-	•	🧠 Rule-Based Logic
+	
+•	🧠 Rule-Based Logic
 Built using simple Python conditions and text matching (no AI or ML).
 
 ⸻
@@ -27,13 +32,13 @@ Built using simple Python conditions and text matching (no AI or ML).
 	•	Basic Text Processing
 
 ▶️ How to Run
-```1.	Clone the repository:
-   git clone https://github.com/soham-patil-tech/resume-skill-gap-analyzer.git
+1.	Clone the repository:
+```git clone https://github.com/soham-patil-tech/resume-skill-gap-analyzer.git```
 
-	2.	Navigate to the project directory:
-   cd resume-skill-gap-analyzer
+2.	Navigate to the project directory:
+```cd resume-skill-gap-analyzer```
 	
-    3.	Run the analyzer:
-   python src/analyzer.py
+3.	Run the analyzer:
+```python src/analyzer.py```
 
 
