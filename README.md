@@ -1,21 +1,39 @@
-# Resume Skill Gap Analyzer (Python)
+📄 Resume Skill Gap Analyzer (Python)
 
-A beginner-friendly yet professional Python project that analyzes a resume
-against a selected job role and identifies missing skills, weak words,
-and resume readiness score.
+A beginner-friendly yet professional Python project that analyzes a resume against a selected job role and identifies missing skills, weak wording, and provides an overall resume readiness score.
 
-## Features
-- Role-based skill analysis
-- Missing skill detection
-- Weak corporate word detection
-- Resume readiness score
-- Rule-based (No AI, pure Python logic)
+This project uses pure Python logic (rule-based approach) — no AI/ML — making it easy to understand, modify, and extend.
 
-## Technologies
-- Python
-- JSON
-- File Handling
+⸻
 
-## How to Run
-```bash
-python src/analyzer.py
+🚀 Key Features
+	•	🎯 Role-Based Skill Analysis
+Matches resume content against predefined skills for a chosen job role.
+	•	❌ Missing Skill Detection
+Identifies important skills that are absent from the resume.
+	•	⚠️ Weak Corporate Word Detection
+Flags commonly used weak words (e.g., worked on, helped, responsible for).
+	•	📊 Resume Readiness Score
+Generates a score indicating how well the resume matches the selected role.
+	•	🧠 Rule-Based Logic
+Built using simple Python conditions and text matching (no AI or ML).
+
+⸻
+
+🛠️ Technologies Used
+	•	Python
+	•	JSON (for skill datasets)
+	•	File Handling
+	•	Basic Text Processing
+
+▶️ How to Run
+```1.	Clone the repository:
+   git clone https://github.com/soham-patil-tech/resume-skill-gap-analyzer.git
+
+	2.	Navigate to the project directory:
+   cd resume-skill-gap-analyzer
+	
+    3.	Run the analyzer:
+   python src/analyzer.py
+
+
