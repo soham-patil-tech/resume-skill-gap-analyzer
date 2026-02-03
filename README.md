@@ -15,7 +15,12 @@ Matches resume content against predefined skills for a chosen job role.
 Identifies important skills that are absent from the resume.
 	
 •	⚠️ Weak Corporate Word Detection
-Flags commonly used weak words (e.g., worked on, helped, responsible for).
+Flags non-impactful phrases like:
+	•	worked on
+	•	helped
+	•	responsible for
+
+Encourages stronger, action-oriented resume wording.
 	
 •	📊 Resume Readiness Score
 Generates a score indicating how well the resume matches the selected role.
