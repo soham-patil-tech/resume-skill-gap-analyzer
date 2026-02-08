@@ -46,4 +46,5 @@ Built using simple Python conditions and text matching (no AI or ML).
 3.	Run the analyzer:
 ```python src/analyzer.py```
 
+By Soham Patil
 
