@@ -47,4 +47,4 @@ Built using simple Python conditions and text matching (no AI or ML).
 ```python src/analyzer.py```
 
 
-
+By Soham Patil
