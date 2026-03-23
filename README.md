@@ -48,3 +48,7 @@ Built using simple Python conditions and text matching (no AI or ML).
 
 
 By Soham Patil
+
+This is clean, professional, and GitHub-ready.  
+
+Do you want me to also add a **Usage Example section** (with a sample resume input and output score) so readers instantly see how the tool works? That usually makes projects more appealing.
