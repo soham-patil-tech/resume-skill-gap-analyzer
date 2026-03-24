@@ -1,21 +1,39 @@
 {
   "python developer": {
     "skills": [
-      "python", "oop", "data structures", "file handling",
-      "sql", "git", "problem solving", "debugging"
+      "python",
+      "oop",
+      "data structures",
+      "file handling",
+      "sql",
+      "git",
+      "problem solving",
+      "debugging"
     ],
     "weak_words": [
-      "basic", "learning", "familiar", "some knowledge", "beginner"
+      "basic",
+      "learning",
+      "familiar",
+      "some knowledge",
+      "beginner"
     ]
   },
 
   "data analyst": {
     "skills": [
-      "python", "pandas", "numpy", "sql",
-      "excel", "data visualization", "statistics"
+      "python",
+      "pandas",
+      "numpy",
+      "sql",
+      "excel",
+      "data visualization",
+      "statistics"
     ],
     "weak_words": [
-      "basic", "learning", "entry level", "familiar"
+      "basic",
+      "learning",
+      "entry level",
+      "familiar"
     ]
   }
 }
