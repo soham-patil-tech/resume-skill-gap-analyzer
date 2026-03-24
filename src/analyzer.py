@@ -1,5 +1,4 @@
 import json
-import os
 
 # ---------- LOAD JOB ROLE DATA ----------
 def load_roles():
@@ -19,13 +18,16 @@ def read_resume(path):
         print("❌ Resume file not found.")
         return ""
 
-# ---------- ANALYZE SKILLS ----------
+# ---------- ANALYZE SKILLS (IMPROVED) ----------
 def analyze_skills(resume_text, required_skills):
     found = []
     missing = []
 
     for skill in required_skills:
-        if skill.lower() in resume_text:
+        skill_words = skill.lower().split()
+
+        # ✅ Match if ALL words of skill exist
+        if all(word in resume_text for word in skill_words):
             found.append(skill)
         else:
             missing.append(skill)
@@ -34,7 +36,11 @@ def analyze_skills(resume_text, required_skills):
 
 # ---------- FIND WEAK WORDS ----------
 def find_weak_words(resume_text, weak_words):
-    return [word for word in weak_words if word.lower() in resume_text]
+    found = []
+    for word in weak_words:
+        if word.lower() in resume_text:
+            found.append(word)
+    return found
 
 # ---------- CALCULATE SCORE ----------
 def calculate_score(found, total):
@@ -49,11 +55,11 @@ def main():
     if not roles:
         return
 
-    print("\nAvailable Roles:")
-    for role in roles.keys():   # ✅ FIXED
-        print(f"- {role.title()}")
+    print("\n📌 Available Roles:")
+    for role in roles.keys():
+        print(f"  - {role.title()}")
 
-    choice = input("\nChoose a role: ").lower()
+    choice = input("\n👉 Choose a role: ").lower().strip()
 
     if choice not in roles:
         print("❌ Invalid role selected.")
@@ -64,42 +70,38 @@ def main():
     if not resume_text:
         return
 
-    skills = roles[choice].get("skills", [])          # ✅ SAFE ACCESS
-    weak_words = roles[choice].get("weak_words", [])  # ✅ SAFE ACCESS
+    skills = roles[choice].get("skills", [])
+    weak_words = roles[choice].get("weak_words", [])
 
     found, missing = analyze_skills(resume_text, skills)
     weak_found = find_weak_words(resume_text, weak_words)
     score = calculate_score(found, len(skills))
 
-    print("\n========= ANALYSIS REPORT =========")
-    print(f"Role Selected     : {choice.title()}")
-    print(f"Resume Score      : {score}%")
+    # ---------- OUTPUT ----------
+    print("\n========= 📊 ANALYSIS REPORT =========")
+    print(f"🎯 Role Selected  : {choice.title()}")
+    print(f"📈 Resume Score   : {score}%")
 
     print("\n✔ Skills Found:")
-    for s in found:
-        print(f"  - {s}")
+    print("  - " + "\n  - ".join(found) if found else "  - None")
 
     print("\n❌ Missing Skills:")
-    for s in missing:
-        print(f"  - {s}")
+    print("  - " + "\n  - ".join(missing) if missing else "  - None")
 
     print("\n⚠ Weak Words Used:")
-    if weak_found:
-        for w in weak_found:
-            print(f"  - {w}")
-    else:
-        print("  - None")
+    print("  - " + "\n  - ".join(weak_found) if weak_found else "  - None")
 
     print("\n💡 Suggestions:")
     if score < 50:
-        print("- Resume needs major improvement.")
+        print("  - Resume needs major improvement.")
     elif score < 75:
-        print("- Resume is decent but can be improved.")
+        print("  - Resume is decent but can be improved.")
     else:
-        print("- Resume is strong for this role.")
+        print("  - Resume is strong for this role.")
 
-    print("=================================\n")
+    print("=====================================\n")
 
 
+# ---------- RUN ----------
 if __name__ == "__main__":
     main()
