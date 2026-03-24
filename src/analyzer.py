@@ -1,16 +1,23 @@
 import json
+import os
 
 # ---------- LOAD JOB ROLE DATA ----------
 def load_roles():
-    with open("data/roles.json", "r") as file:
-        return json.load(file)
-
+    try:
+        with open("data/roles.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print("❌ roles.json file not found. Check path: data/roles.json")
+        return {}
 
 # ---------- READ RESUME ----------
 def read_resume(path):
-    with open(path, "r") as file:
-        return file.read().lower()
-
+    try:
+        with open(path, "r") as file:
+            return file.read().lower()
+    except FileNotFoundError:
+        print("❌ Resume file not found.")
+        return ""
 
 # ---------- ANALYZE SKILLS ----------
 def analyze_skills(resume_text, required_skills):
@@ -25,23 +32,25 @@ def analyze_skills(resume_text, required_skills):
 
     return found, missing
 
-
 # ---------- FIND WEAK WORDS ----------
 def find_weak_words(resume_text, weak_words):
-    return [word for word in weak_words if word in resume_text]
-
+    return [word for word in weak_words if word.lower() in resume_text]
 
 # ---------- CALCULATE SCORE ----------
 def calculate_score(found, total):
+    if total == 0:
+        return 0
     return round((len(found) / total) * 100, 2)
-
 
 # ---------- MAIN ----------
 def main():
     roles = load_roles()
 
+    if not roles:
+        return
+
     print("\nAvailable Roles:")
-    for role in roles:
+    for role in roles.keys():   # ✅ FIXED
         print(f"- {role.title()}")
 
     choice = input("\nChoose a role: ").lower()
@@ -52,8 +61,11 @@ def main():
 
     resume_text = read_resume("sample_resume.txt")
 
-    skills = roles[choice]["skills"]
-    weak_words = roles[choice]["weak_words"]
+    if not resume_text:
+        return
+
+    skills = roles[choice].get("skills", [])          # ✅ SAFE ACCESS
+    weak_words = roles[choice].get("weak_words", [])  # ✅ SAFE ACCESS
 
     found, missing = analyze_skills(resume_text, skills)
     weak_found = find_weak_words(resume_text, weak_words)
@@ -72,8 +84,11 @@ def main():
         print(f"  - {s}")
 
     print("\n⚠ Weak Words Used:")
-    for w in weak_found:
-        print(f"  - {w}")
+    if weak_found:
+        for w in weak_found:
+            print(f"  - {w}")
+    else:
+        print("  - None")
 
     print("\n💡 Suggestions:")
     if score < 50:
